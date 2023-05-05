@@ -21,7 +21,12 @@ all-services:
         SecurityConsulTokenDuration: false
 #     Tags: # Contains the service level tags to be attached to all the service's metrics
       #  Gateway: "my-iot-gateway" # Tag must be added here or via Consul Env Override can only change existing value, not added new ones.
-      
+
+  SecretStore:
+    Type: vault
+    Protocol: http
+    Host: localhost222
+
   Service:
     HealthCheckInterval: "10s"
     ServerBindAddr: "" # Leave blank so default to Host value unless different value is needed.
@@ -29,28 +34,28 @@ all-services:
     MaxRequestSize: 0 # Not currently used. Defines the maximum size of http request body in bytes
     RequestTimeout: "5s"
     CORSConfiguration:
-      EnableCORS: false
+      EnableCORS: true
       CORSAllowCredentials: false
-      CORSAllowedOrigin: "https://localhost"
+      CORSAllowedOrigin: "https://*.edgex.ziti"
       CORSAllowedMethods: "GET, POST, PUT, PATCH, DELETE"
       CORSAllowedHeaders: "Authorization, Accept, Accept-Language, Content-Language, Content-Type, X-Correlation-ID"
       CORSExposeHeaders: "Cache-Control, Content-Language, Content-Length, Content-Type, Expires, Last-Modified, Pragma, X-Correlation-ID"
       CORSMaxAge: 3600
 
   Registry:
-    Host: "localhost"
+    Host: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com"
     Port: 8500
     Type: "consul"
   
   Database:
-    Host: "localhost"
+    Host: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com"
     Port: 6379
     Timeout: "5s"
     Type: "redisdb"
   
   MessageBus:
     Protocol: "redis"
-    Host: "localhost"
+    Host: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com"
     Port: 6379
     Type: "redis"
     AuthMode: "usernamepassword"  # required for redis MessageBus (secure or insecure).
@@ -92,7 +97,7 @@ app-services:
   Clients:
     core-metadata:
       Protocol: "http"
-      Host: "localhost"
+      Host: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com"
       Port: 59881
   Trigger:
     Type: "edgex-messagebus"
@@ -110,7 +115,7 @@ device-services:
   Clients:
     core-metadata:
       Protocol: "http"
-      Host: "localhost"
+      Host: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com"
       Port: 59881
   Device:
     DataTransform: true
