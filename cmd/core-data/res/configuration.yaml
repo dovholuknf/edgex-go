@@ -10,8 +10,17 @@ Writable:
     ##    Gateway="my-iot-gateway" # Tag must be added here or via Consul Env Override can only change existing value, not added new ones.
 Service:
   Port: 59880
-  Host: "localhost"
+  Host: "localhost14"
   StartupMsg: "This is the Core Data Microservice"
+  ListenMode: "zerotrust"
+  ListenOptions:
+    OpenZitiController: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com:8441"
+    OpenZitiServiceName: "edgex.core-data"
+
+  SecretStore:
+    Type: vault
+    Protocol: http
+    Host: localhostb
 
 MessageBus:
   Optional:
@@ -19,3 +28,8 @@ MessageBus:
 
 Database:
   Name: "coredata"
+
+SecretStore:
+  Type: vault
+  Protocol: http
+  Host: localhosta

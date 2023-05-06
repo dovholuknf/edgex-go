@@ -2,9 +2,13 @@ ScheduleIntervalTime: 500
 Writable:
     LogLevel: INFO
 Service:
-    Host: localhost
-    Port: 59861
+    Host: support-scheduler.edgex.ziti
+    Port: 80
     StartupMsg: "This is the Support Scheduler Microservice"
+    ListenMode: "zerotrust"
+    ListenOptions:
+        OpenZitiController: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com:8441"
+        OpenZitiServiceName: "edgex.support-scheduler"
 Intervals:
     Midnight:
         Name: midnight
@@ -26,6 +30,4 @@ MessageBus:
   Optional:
     ClientId: support-scheduler
 
-Database:
-  Name: scheduler
 
