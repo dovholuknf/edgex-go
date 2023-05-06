@@ -3903,7 +3903,7 @@ paths:
                     BootTimeout: 30000
                     CheckInterval: "10s"
                     Host: "edgex-core-metadata"
-                    Port: 59881
+                    Port: 59107
                     SeverBindAddr: ""
                     Protocol: "http"
                     StartupMsg: "This is the EdgeX Core Metadata Microservice"

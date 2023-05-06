@@ -7,7 +7,7 @@ Writable:
     Validation: false
 Service:
   Host: localhost
-  Port: 59881
+  Port: 59105
   StartupMsg: "This is the EdgeX Core Metadata Microservice"
   ListenMode: "zerotrust"
   ListenOptions:

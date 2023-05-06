@@ -98,7 +98,7 @@ app-services:
     core-metadata:
       Protocol: "http"
       Host: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com"
-      Port: 59881
+      Port: 59103
   Trigger:
     Type: "edgex-messagebus"
     SubscribeTopics: "events/#" # Base topic is prepended to this topic when using edgex-messagebus
@@ -116,7 +116,7 @@ device-services:
     core-metadata:
       Protocol: "http"
       Host: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com"
-      Port: 59881
+      Port: 59104
   Device:
     DataTransform: true
     MaxCmdOps: 128

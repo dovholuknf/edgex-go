@@ -1819,7 +1819,7 @@ paths:
                       Protocol: "http"
                     Metadata:
                       Host: "edgex-core-metadata"
-                      Port: 59881
+                      Port: 59106
                       Protocol: "http"
                   Database:
                     Username: "core"

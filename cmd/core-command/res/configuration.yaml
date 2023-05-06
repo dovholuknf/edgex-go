@@ -20,8 +20,8 @@ Service:
 Clients:
   core-metadata:
     Protocol: http
-    Host: localhost
-    Port: 59881
+    Host: core-metadata.edgex.ziti
+    Port: 80
     SecurityOptions:
       Mode: "zerotrust"
       OpenZitiController: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com:8441"
