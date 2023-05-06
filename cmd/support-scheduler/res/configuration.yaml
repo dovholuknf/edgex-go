@@ -5,7 +5,7 @@ Service:
     Host: support-scheduler.edgex.ziti
     Port: 80
     StartupMsg: "This is the Support Scheduler Microservice"
-    ListenOptions:
+    SecurityOptions:
         ListenMode: "zerotrust"
         OpenZitiController: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com:8441"
         OpenZitiServiceName: "edgex.support-scheduler"

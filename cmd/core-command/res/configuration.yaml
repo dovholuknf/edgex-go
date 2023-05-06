@@ -13,7 +13,7 @@ Service:
   Host: localhost
   Port: 59882
   StartupMsg: "This is the Core Command Microservice"
-  ListenOptions:
+  SecurityOptions:
     ListenMode: "zerotrust"
     OpenZitiController: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com:8441"
     OpenZitiServiceName: "edgex.core-command"

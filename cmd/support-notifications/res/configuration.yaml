@@ -12,7 +12,7 @@ Service:
   Host: support-notifications.edgex.ziti
   Port: 59860
   StartupMsg: "This is the Support Notifications Microservice"
-  ListenOptions:
+  SecurityOptions:
     ListenMode: "zerotrust"
     OpenZitiController: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com:8441"
     OpenZitiServiceName: "edgex.support-notifications"
