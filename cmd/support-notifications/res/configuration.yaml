@@ -9,9 +9,13 @@ Writable:
         username: username@mail.example.com
         password: ''
 Service:
-  Host: localhost
+  Host: support-notifications.edgex.ziti
   Port: 59860
   StartupMsg: "This is the Support Notifications Microservice"
+  SecurityOptions:
+    ListenMode: "zerotrust"
+    OpenZitiController: "openziti.controller:8441"
+    OpenZitiServiceName: "edgex.support-notifications"
 Smtp:
   Host: my.email.server
   Port: 587

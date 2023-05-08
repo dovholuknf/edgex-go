@@ -13,11 +13,18 @@ Service:
   Host: localhost
   Port: 59882
   StartupMsg: "This is the Core Command Microservice"
+  SecurityOptions:
+    ListenMode: "zerotrust"
+    OpenZitiController: "openziti.controller:8441"
+    OpenZitiServiceName: "edgex.core-command"
 Clients:
   core-metadata:
     Protocol: http
-    Host: localhost
-    Port: 59881
+    Host: core-metadata.edgex.ziti
+    Port: 80
+    SecurityOptions:
+      Mode: "zerotrust"
+      OpenZitiController: "openziti.controller:8441"
 ExternalMQTT:
   Enabled: false
   Url: "tcp://localhost:1883"
