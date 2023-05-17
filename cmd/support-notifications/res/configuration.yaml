@@ -14,7 +14,7 @@ Service:
   StartupMsg: "This is the Support Notifications Microservice"
   SecurityOptions:
     ListenMode: "zerotrust"
-    OpenZitiController: "openziti.controller:8441"
+    OpenZitiController: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com:8441"
     OpenZitiServiceName: "edgex.support-notifications"
 Smtp:
   Host: my.email.server

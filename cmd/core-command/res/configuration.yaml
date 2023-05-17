@@ -1,5 +1,5 @@
 Writable:
-  LogLevel: INFO
+  LogLevel: DEBUG
   InsecureSecrets:
     mqtt:
       SecretName: mqtt
@@ -15,7 +15,7 @@ Service:
   StartupMsg: "This is the Core Command Microservice"
   SecurityOptions:
     ListenMode: "zerotrust"
-    OpenZitiController: "openziti.controller:8441"
+    OpenZitiController: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com:8441"
     OpenZitiServiceName: "edgex.core-command"
 Clients:
   core-metadata:
@@ -24,7 +24,7 @@ Clients:
     Port: 80
     SecurityOptions:
       Mode: "zerotrust"
-      OpenZitiController: "openziti.controller:8441"
+      OpenZitiController: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com:8441"
 ExternalMQTT:
   Enabled: false
   Url: "tcp://localhost:1883"

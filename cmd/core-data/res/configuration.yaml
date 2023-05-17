@@ -1,6 +1,6 @@
 MaxEventSize: 25000 # Defines the maximum event size in kilobytes
 Writable:
-  LogLevel: "INFO"
+  LogLevel: "DEBUG"
   PersistData: true
   Telemetry:
     Metrics: # All service's metric names must be present in this list.
@@ -14,7 +14,7 @@ Service:
   StartupMsg: "This is the Core Data Microservice"
   SecurityOptions:
     ListenMode: "zerotrust"
-    OpenZitiController: "openziti.controller:8441"
+    OpenZitiController: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com:8441"
     OpenZitiServiceName: "edgex.core-data"
 
 MessageBus:

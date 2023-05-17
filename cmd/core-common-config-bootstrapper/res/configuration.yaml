@@ -37,19 +37,19 @@ all-services:
       CORSMaxAge: 3600
 
   Registry:
-    Host: "openziti.controller"
+    Host: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com"
     Port: 8500
     Type: "consul"
   
   Database:
-    Host: "openziti.controller"
+    Host: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com"
     Port: 6379
     Timeout: "5s"
     Type: "redisdb"
   
   MessageBus:
     Protocol: "redis"
-    Host: "openziti.controller"
+    Host: "ec2-3-134-108-218.us-east-2.compute.amazonaws.com"
     Port: 6379
     Type: "redis"
     AuthMode: "usernamepassword"  # required for redis MessageBus (secure or insecure).
@@ -91,7 +91,7 @@ app-services:
   Clients:
     core-metadata:
       Protocol: "http"
-      Host: "openziti.controller"
+      Host: "ec2-3-134-108-218.us-east-2.compute.amazonaws.come"
       Port: 59881
   Trigger:
     Type: "edgex-messagebus"
@@ -109,7 +109,7 @@ device-services:
   Clients:
     core-metadata:
       Protocol: "http"
-      Host: "openziti.controller"
+      Host: "ec2-3-134-108-218.us-east-2.compute.amazonaws.coma"
       Port: 59881
   Device:
     DataTransform: true
