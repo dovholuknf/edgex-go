@@ -2,9 +2,14 @@ ScheduleIntervalTime: 500
 Writable:
     LogLevel: INFO
 Service:
-    Host: localhost
-    Port: 59861
+    Host: support-scheduler.edgex.ziti
+    Port: 80
     StartupMsg: "This is the Support Scheduler Microservice"
+    SecurityOptions:
+        ListenMode: "zerotrust"
+        OpenZitiController: "openziti:1280"
+        OpenZitiServiceName: "edgex.support-scheduler"
+
 Intervals:
     Midnight:
         Name: midnight

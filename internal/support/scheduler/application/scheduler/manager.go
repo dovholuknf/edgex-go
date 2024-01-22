@@ -6,6 +6,7 @@
 package scheduler
 
 import (
+	clientInterfaces "github.com/edgexfoundry/go-mod-core-contracts/v3/clients/interfaces"
 	"sync"
 	"time"
 
@@ -15,8 +16,6 @@ import (
 
 	bootstrapInterfaces "github.com/edgexfoundry/go-mod-bootstrap/v3/bootstrap/interfaces"
 	"github.com/edgexfoundry/go-mod-bootstrap/v3/bootstrap/secret"
-
-	clientInterfaces "github.com/edgexfoundry/go-mod-core-contracts/v3/clients/interfaces"
 
 	"github.com/edgexfoundry/go-mod-core-contracts/v3/clients/logger"
 	"github.com/edgexfoundry/go-mod-core-contracts/v3/common"
@@ -144,9 +143,9 @@ func (m *manager) executeAction(action models.IntervalAction) errors.EdgeX {
 
 		var jwtSecretProvider clientInterfaces.AuthenticationInjector
 		if action.AuthMethod == config.AuthMethodJWT {
-			jwtSecretProvider = secret.NewJWTSecretProvider(m.secretProvider)
+			jwtSecretProvider = secret.NewJWTSecretProvider(m.secretProvider, nil /*xxx*/)
 		} else {
-			jwtSecretProvider = secret.NewJWTSecretProvider(nil)
+			jwtSecretProvider = secret.NewJWTSecretProvider(nil, nil /*xxx*/)
 		}
 
 		_, err := utils.SendRequestWithRESTAddress(m.lc, action.Content, action.ContentType, restAddress, jwtSecretProvider)

@@ -1,5 +1,6 @@
 all-services:
   Writable:
+    LogLevel: "DEBUG"
     InsecureSecrets:
       DB:
         SecretName: "redisdb"
@@ -75,6 +76,7 @@ all-services:
 
 app-services:
   Writable:
+    LogLevel: "DEBUG"
     StoreAndForward:
       Enabled: false
       RetryInterval: "5m"

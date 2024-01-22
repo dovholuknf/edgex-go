@@ -9,9 +9,13 @@ Writable:
 #    Tags: # Contains the service level tags to be attached to all the service's metrics
     ##    Gateway="my-iot-gateway" # Tag must be added here or via Consul Env Override can only change existing value, not added new ones.
 Service:
-  Port: 59880
+  Port: 59810
   Host: "localhost"
   StartupMsg: "This is the Core Data Microservice"
+  SecurityOptions:
+    ListenMode: "zerotrust"
+    OpenZitiController: "openziti:1280"
+    OpenZitiServiceName: "edgex.core-data"
 
 MessageBus:
   Optional:
@@ -19,6 +23,8 @@ MessageBus:
 
 Database:
   Name: "coredata"
+  Host: "127.0.0.1"
+  Port: 6379
 
 Retention:
   Enabled: false
