@@ -48,11 +48,16 @@ func NewBootstrap(router *echo.Echo, serviceName string) *Bootstrap {
 func (b *Bootstrap) BootstrapHandler(ctx context.Context, wg *sync.WaitGroup, _ startup.Timer, dic *di.Container) bool {
 	LoadRestRoutes(b.router, dic, b.serviceName)
 	config := container.ConfigurationFrom(dic.Get)
+	lc := bootstrapContainer.LoggingClientFrom(dic.Get) //this would fail when inside the func below?
 
 	// DeviceServiceCommandClient is not part of the common clients handled by the NewClientsBootstrap handler
 	dic.Update(di.ServiceConstructorMap{
 		bootstrapContainer.DeviceServiceCommandClientName: func(get di.Get) interface{} { // add API DeviceServiceCommandClient
-			jwtSecretProvider := secret.NewJWTSecretProvider(bootstrapContainer.SecretProviderExtFrom(get), nil /*seccontext*/)
+			sp := bootstrapContainer.SecretProviderExtFrom(get)
+			jwtSecretProvider := secret.NewJWTSecretProvider(sp)
+			serviceInfo := config.Service
+			roundTripper := bootstrapContainer.HttpTransportFromService(sp, serviceInfo, lc)
+			sp.SetHttpTransport(roundTripper)
 			return clients.NewDeviceServiceCommandClient(jwtSecretProvider, config.Service.EnableNameFieldEscape)
 		},
 	})

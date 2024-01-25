@@ -10,7 +10,7 @@ Service:
   Port: 59881
   StartupMsg: "This is the EdgeX Core Metadata Microservice"
   SecurityOptions:
-    ListenMode: "zerotrust"
+    Mode: "zerotrust"
     OpenZitiController: "openziti:1280"
     OpenZitiServiceName: "edgex.core-metadata"
 

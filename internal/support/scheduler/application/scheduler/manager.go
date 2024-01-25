@@ -143,9 +143,9 @@ func (m *manager) executeAction(action models.IntervalAction) errors.EdgeX {
 
 		var jwtSecretProvider clientInterfaces.AuthenticationInjector
 		if action.AuthMethod == config.AuthMethodJWT {
-			jwtSecretProvider = secret.NewJWTSecretProvider(m.secretProvider, nil /*xxx*/)
+			jwtSecretProvider = secret.NewJWTSecretProvider(m.secretProvider)
 		} else {
-			jwtSecretProvider = secret.NewJWTSecretProvider(nil, nil /*xxx*/)
+			jwtSecretProvider = secret.NewJWTSecretProvider(nil)
 		}
 
 		_, err := utils.SendRequestWithRESTAddress(m.lc, action.Content, action.ContentType, restAddress, jwtSecretProvider)
