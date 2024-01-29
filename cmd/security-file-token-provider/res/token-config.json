@@ -175,5 +175,8 @@
         }
       }
     }
+  },
+  "ekuiper": {
+    "edgex_use_defaults": true
   }
 }
