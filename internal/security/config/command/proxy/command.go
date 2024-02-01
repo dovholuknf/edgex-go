@@ -8,6 +8,7 @@ package proxy
 
 import (
 	"fmt"
+	"github.com/edgexfoundry/edgex-go/internal/security/config/command/proxy/fetchcert"
 
 	"github.com/edgexfoundry/edgex-go/internal/security/config/command/proxy/adduser"
 	"github.com/edgexfoundry/edgex-go/internal/security/config/command/proxy/deluser"
@@ -43,6 +44,8 @@ func NewCommand(
 		command, err = adduser.NewCommand(lc, configuration, args[1:])
 	case deluser.CommandName:
 		command, err = deluser.NewCommand(lc, configuration, args[1:])
+	case fetchcert.CommandName:
+		command, err = fetchcert.NewCommand(lc, configuration, args[1:])
 	default:
 		command = nil
 		err = fmt.Errorf("unsupported command %s", commandName)
