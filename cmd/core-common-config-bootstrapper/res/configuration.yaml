@@ -36,6 +36,10 @@ all-services:
       CORSAllowedHeaders: "Authorization, Accept, Accept-Language, Content-Language, Content-Type, X-Correlation-ID"
       CORSExposeHeaders: "Cache-Control, Content-Language, Content-Length, Content-Type, Expires, Last-Modified, Pragma, X-Correlation-ID"
       CORSMaxAge: 3600
+    SecurityOptions:
+      Mode: ""
+      OpenZitiController: ""
+      OpenZitiServiceName: ""
 
   Registry:
     Host: "localhost"
