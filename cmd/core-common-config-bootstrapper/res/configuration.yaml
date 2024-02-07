@@ -38,8 +38,8 @@ all-services:
       CORSMaxAge: 3600
     SecurityOptions:
       Mode: ""
-      OpenZitiController: ""
-      OpenZitiServiceName: ""
+      OpenZitiController: "openziti:1280"
+      OpenZitiServiceName: "service-override"
 
   Registry:
     Host: "localhost"
@@ -78,6 +78,16 @@ all-services:
       DefaultPubRetryAttempts: "2"
       Subject: "edgex/#" # Required for NATS JetStream only for stream auto-provisioning
 
+  Clients:
+    core-metadata:
+      Protocol: "http"
+      Host: "localhost"
+      Port: 39881
+      SecurityOptions:
+        Mode: ""
+        OpenZitiController: "openziti:1280"
+        OpenZitiServiceName: "client-override"
+        
 app-services:
   Writable:
     LogLevel: "DEBUG"
@@ -101,7 +111,7 @@ app-services:
     core-metadata:
       Protocol: "http"
       Host: "localhost"
-      Port: 59881
+      Port: 29881
   Trigger:
     Type: "edgex-messagebus"
     SubscribeTopics: "events/#" # Base topic is prepended to this topic when using edgex-messagebus
@@ -120,7 +130,11 @@ device-services:
     core-metadata:
       Protocol: "http"
       Host: "localhost"
-      Port: 59881
+      Port: 39881
+      SecurityOptions:
+        Mode: ""
+        OpenZitiController: "openziti:1280"
+        OpenZitiServiceName: "client-override"
   Device:
     DataTransform: true
     MaxCmdOps: 128
