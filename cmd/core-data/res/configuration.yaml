@@ -23,8 +23,6 @@ MessageBus:
 
 Database:
   Name: "coredata"
-  Host: "127.0.0.1"
-  Port: 6379
 
 Retention:
   Enabled: false

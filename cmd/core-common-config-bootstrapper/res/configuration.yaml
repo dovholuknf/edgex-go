@@ -54,7 +54,7 @@ all-services:
   
   MessageBus:
     Protocol: "redis"
-    Host: "localhost"
+    Host: "edgex-redis"
     Port: 6379
     Type: "redis"
     AuthMode: "usernamepassword"  # required for redis MessageBus (secure or insecure).
@@ -87,7 +87,7 @@ all-services:
         Mode: ""
         OpenZitiController: "openziti:1280"
         OpenZitiServiceName: "client-override"
-        
+
 app-services:
   Writable:
     LogLevel: "DEBUG"
@@ -111,7 +111,7 @@ app-services:
     core-metadata:
       Protocol: "http"
       Host: "localhost"
-      Port: 29881
+      Port: 59881
   Trigger:
     Type: "edgex-messagebus"
     SubscribeTopics: "events/#" # Base topic is prepended to this topic when using edgex-messagebus
@@ -130,7 +130,7 @@ device-services:
     core-metadata:
       Protocol: "http"
       Host: "localhost"
-      Port: 39881
+      Port: 59881
       SecurityOptions:
         Mode: ""
         OpenZitiController: "openziti:1280"
