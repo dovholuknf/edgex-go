@@ -178,5 +178,8 @@
   },
   "rules-engine": {
     "edgex_use_defaults": true
+  },
+  "ui": {
+    "edgex_use_defaults": true
   }
 }

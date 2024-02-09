@@ -86,7 +86,7 @@ all-services:
       SecurityOptions:
         Mode: ""
         OpenZitiController: "openziti:1280"
-        OpenZitiServiceName: "client-override"
+        OpenZitiServiceName: "client-overrideb"
 
 app-services:
   Writable:
@@ -112,6 +112,31 @@ app-services:
       Protocol: "http"
       Host: "localhost"
       Port: 59881
+      SecurityOptions:
+        Mode: ""
+        OpenZitiController: "openziti:1280"
+        OpenZitiServiceName: "client-overridea"
+
+        Service:
+          HealthCheckInterval: "10s"
+          ServerBindAddr: "" # Leave blank so default to Host value unless different value is needed.
+          MaxResultCount: 1024
+          MaxRequestSize: 0 # Not currently used. Defines the maximum size of http request body in bytes
+          RequestTimeout: "5s"
+          EnableNameFieldEscape: false # The name field escape could allow the system to use special or Chinese characters in the different name fields, including device, profile, and so on.  If the EnableNameFieldEscape is false, some special characters might cause system error.  TODO: This is set to false by default to avoid breaking change and will be removed in EdgeX 4.0
+          CORSConfiguration:
+            EnableCORS: false
+            CORSAllowCredentials: false
+            CORSAllowedOrigin: "https://localhost"
+            CORSAllowedMethods: "GET, POST, PUT, PATCH, DELETE"
+            CORSAllowedHeaders: "Authorization, Accept, Accept-Language, Content-Language, Content-Type, X-Correlation-ID"
+            CORSExposeHeaders: "Cache-Control, Content-Language, Content-Length, Content-Type, Expires, Last-Modified, Pragma, X-Correlation-ID"
+            CORSMaxAge: 3600
+          SecurityOptions:
+            Mode: ""
+            OpenZitiController: "openziti:1280"
+            OpenZitiServiceName: "service-override"
+
   Trigger:
     Type: "edgex-messagebus"
     SubscribeTopics: "events/#" # Base topic is prepended to this topic when using edgex-messagebus
