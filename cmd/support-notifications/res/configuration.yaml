@@ -9,7 +9,7 @@ Writable:
         username: username@mail.example.com
         password: ''
 Service:
-  Host: support-notifications.edgex.ziti
+  Host: localhost
   Port: 59860
   StartupMsg: "This is the Support Notifications Microservice"
   SecurityOptions:
