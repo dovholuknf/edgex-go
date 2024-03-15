@@ -18,6 +18,7 @@ package command
 
 import (
 	"context"
+	"github.com/edgexfoundry/go-mod-bootstrap/v3/bootstrap/zerotrust"
 	"sync"
 
 	"github.com/edgexfoundry/edgex-go/internal/core/command/container"
@@ -56,8 +57,12 @@ func (b *Bootstrap) BootstrapHandler(ctx context.Context, wg *sync.WaitGroup, _ 
 			sp := bootstrapContainer.SecretProviderExtFrom(get)
 			jwtSecretProvider := secret.NewJWTSecretProvider(sp)
 			serviceInfo := config.Service
-			roundTripper := bootstrapContainer.HttpTransportFromService(sp, serviceInfo, lc)
-			sp.SetHttpTransport(roundTripper)
+			roundTripper, err := zerotrust.HttpTransportFromService(sp, serviceInfo, lc)
+			if err != nil {
+				lc.Warnf("unable to set HttpTransport due to unexpected error: %v", err)
+			} else {
+				sp.SetHttpTransport(roundTripper)
+			}
 			return clients.NewDeviceServiceCommandClient(jwtSecretProvider, config.Service.EnableNameFieldEscape)
 		},
 	})

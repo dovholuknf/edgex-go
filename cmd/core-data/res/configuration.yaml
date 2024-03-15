@@ -13,7 +13,7 @@ Service:
   Host: "localhost"
   StartupMsg: "This is the Core Data Microservice"
   SecurityOptions:
-    Mode: "zerotrust"
+    Mode: ""
     OpenZitiController: "openziti:1280"
     OpenZitiServiceName: "edgex.core-data"
 
@@ -23,8 +23,6 @@ MessageBus:
 
 Database:
   Name: "coredata"
-  Host: "127.0.0.1"
-  Port: 6379
 
 Retention:
   Enabled: false
