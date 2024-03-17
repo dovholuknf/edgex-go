@@ -1,6 +1,6 @@
 all-services:
   Writable:
-    LogLevel: "DEBUG"
+    LogLevel: "INFO"
     InsecureSecrets:
       DB:
         SecretName: "redisdb"
@@ -36,7 +36,20 @@ all-services:
       CORSAllowedHeaders: "Authorization, Accept, Accept-Language, Content-Language, Content-Type, X-Correlation-ID"
       CORSExposeHeaders: "Cache-Control, Content-Language, Content-Length, Content-Type, Expires, Last-Modified, Pragma, X-Correlation-ID"
       CORSMaxAge: 3600
+    SecurityOptions:
+      Mode: ""
+      OpenZitiController: "openziti:1280"
+      OpenZitiServiceName: "edgex.service-name"
 
+  Clients:
+    core-metadata:
+      Protocol: http
+      Host: core-metadata.edgex.ziti
+      Port: 80
+      SecurityOptions:
+        Mode: ""
+        OpenZitiController: "openziti:1280"
+        
   Registry:
     Host: "localhost"
     Port: 8500
@@ -76,7 +89,7 @@ all-services:
 
 app-services:
   Writable:
-    LogLevel: "DEBUG"
+    LogLevel: "INFO"
     StoreAndForward:
       Enabled: false
       RetryInterval: "5m"

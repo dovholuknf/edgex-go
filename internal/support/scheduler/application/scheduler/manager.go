@@ -6,7 +6,6 @@
 package scheduler
 
 import (
-	clientInterfaces "github.com/edgexfoundry/go-mod-core-contracts/v3/clients/interfaces"
 	"sync"
 	"time"
 
@@ -16,6 +15,8 @@ import (
 
 	bootstrapInterfaces "github.com/edgexfoundry/go-mod-bootstrap/v3/bootstrap/interfaces"
 	"github.com/edgexfoundry/go-mod-bootstrap/v3/bootstrap/secret"
+
+	clientInterfaces "github.com/edgexfoundry/go-mod-core-contracts/v3/clients/interfaces"
 
 	"github.com/edgexfoundry/go-mod-core-contracts/v3/clients/logger"
 	"github.com/edgexfoundry/go-mod-core-contracts/v3/common"

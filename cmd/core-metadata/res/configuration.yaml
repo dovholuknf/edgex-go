@@ -1,5 +1,5 @@
 Writable:
-  LogLevel: DEBUG
+  LogLevel: INFO
   ProfileChange:
     StrictDeviceProfileChanges: false
     StrictDeviceProfileDeletes: false
