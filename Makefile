@@ -73,7 +73,13 @@ endif
 NO_MESSAGEBUS_GO_BUILD_TAG:=no_messagebus
 
 # Base docker image to speed up local builds
-BASE_DOCKERFILE=https://raw.githubusercontent.com/edgexfoundry/ci-build-images/golang-${GO_VERSION}/Dockerfile
+ifneq ($(BASE_DOCKERFILE),)
+    BASE_DOCKERFILE := $(EDGEX_LOCAL_DEV)
+else
+    BASE_DOCKERFILE := https://raw.githubusercontent.com/edgexfoundry/ci-build-images/golang-${GO_VERSION}/Dockerfile
+endif
+$(info BASE_DOCKERFILE is set to: $(BASE_DOCKERFILE). set BASE_DOCKERFILE as an environment variable to override )
+
 LOCAL_CACHE_IMAGE_BASE=edgex-go-local-cache-base
 LOCAL_CACHE_IMAGE=edgex-go-local-cache
 

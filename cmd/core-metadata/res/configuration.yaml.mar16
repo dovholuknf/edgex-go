@@ -1,5 +1,5 @@
 Writable:
-  LogLevel: DEBUG
+  LogLevel: INFO
   ProfileChange:
     StrictDeviceProfileChanges: false
     StrictDeviceProfileDeletes: false
@@ -9,8 +9,8 @@ Service:
   Host: localhost
   Port: 59881
   StartupMsg: "This is the EdgeX Core Metadata Microservice"
-  _SecurityOptions:
-    Mode: "zerotrust"
+  SecurityOptions:
+    Mode: ""
     OpenZitiController: "openziti:1280"
     OpenZitiServiceName: "edgex.core-metadata"
 
