@@ -13,6 +13,10 @@ Service:
   Host: localhost
   Port: 59882
   StartupMsg: "This is the Core Command Microservice"
+  SecurityOptions:
+    Mode: ""
+    OpenZitiController: "openziti:1280"
+    OpenZitiServiceName: "edgex.core-command"
 
 Clients:
   core-metadata:
