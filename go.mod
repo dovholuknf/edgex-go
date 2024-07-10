@@ -1,6 +1,6 @@
 module github.com/edgexfoundry/edgex-go
 
-go 1.22
+go 1.21
 
 require (
 	github.com/eclipse/paho.mqtt.golang v1.4.3
@@ -141,4 +141,4 @@ require (
 	nhooyr.io/websocket v1.8.11 // indirect
 )
 
-replace github.com/edgexfoundry/go-mod-bootstrap/v3 => github.com/dovholuknf/go-mod-bootstrap/v3 v3.0.0-20240709193210-1c138bfa8f24
+replace github.com/edgexfoundry/go-mod-bootstrap/v3 => github.com/dovholuknf/go-mod-bootstrap/v3 v3.0.0-20240710195140-f6b97829c4f7
