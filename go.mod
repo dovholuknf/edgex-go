@@ -2,8 +2,6 @@ module github.com/edgexfoundry/edgex-go
 
 go 1.22
 
-toolchain go1.22.1
-
 require (
 	github.com/eclipse/paho.mqtt.golang v1.4.3
 	github.com/edgexfoundry/go-mod-bootstrap/v3 v3.2.0-dev.39
