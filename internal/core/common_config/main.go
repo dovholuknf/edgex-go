@@ -17,7 +17,6 @@ package common_config
 import (
 	"context"
 	"fmt"
-	"net/http"
 	"os"
 	"os/signal"
 	"sort"
@@ -83,9 +82,6 @@ func Main(ctx context.Context, cancel context.CancelFunc) {
 		os.Exit(1)
 	}
 
-	// Bypass the zero trust zitidfied transport for Core Keeper Configuration client
-	// Should leverage the HttpTransportFromService function from zerotrust pkg in go-mod-bootstrap, set the default transport for now
-	secretProvider.SetHttpTransport(http.DefaultTransport)
 	jwtSecretProvider := secret.NewJWTSecretProvider(secretProvider)
 
 	configProviderInfo.SetAuthInjector(jwtSecretProvider)
